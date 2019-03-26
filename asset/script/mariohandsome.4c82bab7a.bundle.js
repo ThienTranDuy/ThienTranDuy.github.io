@@ -1,4 +1,4 @@
-!function(c){var e={};function t(l){if(e[l])return e[l].exports;var n=e[l]={i:l,l:!1,exports:{}};return c[l].call(n.exports,n,n.exports,t),n.l=!0,n.exports}t.m=c,t.c=e,t.d=function(c,e,l){t.o(c,e)||Object.defineProperty(c,e,{enumerable:!0,get:l})},t.r=function(c){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(c,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(c,"__esModule",{value:!0})},t.t=function(c,e){if(1&e&&(c=t(c)),8&e)return c;if(4&e&&"object"==typeof c&&c&&c.__esModule)return c;var l=Object.create(null);if(t.r(l),Object.defineProperty(l,"default",{enumerable:!0,value:c}),2&e&&"string"!=typeof c)for(var n in c)t.d(l,n,function(e){return c[e]}.bind(null,n));return l},t.n=function(c){var e=c&&c.__esModule?function(){return c.default}:function(){return c};return t.d(e,"a",e),e},t.o=function(c,e){return Object.prototype.hasOwnProperty.call(c,e)},t.p="",t(t.s=2)}([function(c,e,t){var l;
+﻿!function(c){var e={};function t(l){if(e[l])return e[l].exports;var n=e[l]={i:l,l:!1,exports:{}};return c[l].call(n.exports,n,n.exports,t),n.l=!0,n.exports}t.m=c,t.c=e,t.d=function(c,e,l){t.o(c,e)||Object.defineProperty(c,e,{enumerable:!0,get:l})},t.r=function(c){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(c,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(c,"__esModule",{value:!0})},t.t=function(c,e){if(1&e&&(c=t(c)),8&e)return c;if(4&e&&"object"==typeof c&&c&&c.__esModule)return c;var l=Object.create(null);if(t.r(l),Object.defineProperty(l,"default",{enumerable:!0,value:c}),2&e&&"string"!=typeof c)for(var n in c)t.d(l,n,function(e){return c[e]}.bind(null,n));return l},t.n=function(c){var e=c&&c.__esModule?function(){return c.default}:function(){return c};return t.d(e,"a",e),e},t.o=function(c,e){return Object.prototype.hasOwnProperty.call(c,e)},t.p="",t(t.s=2)}([function(c,e,t){var l;
 /*!
  * jQuery JavaScript Library v3.3.1
  * https://jquery.com/
@@ -78,5 +78,42 @@ txt=txt.substring(1,txt.length)+txt.charAt(0);
 refresh=setTimeout("marquee_title()",expert);
 }
 marquee_title();
+window.onload = function () {
+    document.addEventListener("contextmenu", function (e) {
+        e.preventDefault();
+    }, false);
+    document.addEventListener("keydown", function (e) {
+        //document.onkeydown = function(e) {
+        // "I" key
+        if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {
+            disabledEvent(e);
+        }
+        // "J" key
+        if (e.ctrlKey && e.shiftKey && e.keyCode == 74) {
+            disabledEvent(e);
+        }
+        // "S" key + macOS
+        if (e.keyCode == 83 && (navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)) {
+            disabledEvent(e);
+        }
+        // "U" key
+        if (e.ctrlKey && e.keyCode == 85) {
+            disabledEvent(e);
+        }
+        // "F12" key
+        if (event.keyCode == 123) {
+            disabledEvent(e);
+        }
+    }, false);
+    function disabledEvent(e) {
+        if (e.stopPropagation) {
+            e.stopPropagation();
+        } else if (window.event) {
+            window.event.cancelBubble = true;
+        }
+        e.preventDefault();
+        return false;
+    }
+}
 
 //# sourceMappingURL=mariohandsome.4c82bab7a.bundle.js.map
